@@ -45,7 +45,7 @@ jQuery(function($){
 	$(document).on('click','.item',function(e){
 		var vpos = $(this).data('vidpos')
 		var vinfo = window.subdata.vids[vpos[0]]
-		var yturl = "//www.youtube.com/embed/"+vinfo[0]+"?start="+vpos[1]
+		var yturl = "//www.youtube.com/embed/"+vinfo[0]+"?autoplay=1&start="+vpos[1]
 		$('.video').attr("src",yturl)
 	})
 })
