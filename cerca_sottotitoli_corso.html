@@ -25,6 +25,7 @@ jQuery(function($){
 		var res = $('.results')
 		res.empty()
 		if(!st) return
+		st = st.toLowerCase()
 		var found = $.grep(texts,function(it){
 			var match =it.indexOf(st)==-1?false:true
 			return match
@@ -51,6 +52,7 @@ jQuery(function($){
 		var vpos = $(this).data('vidpos')
 		var vinfo = window.subdata.vids[vpos[0]]
 		var yturl = "//www.youtube.com/embed/"+vinfo[0]+"?autoplay=1&start="+vpos[1]
+		$('.video').show()
 		$('.video').attr("src",yturl)
 	})
 
@@ -63,12 +65,12 @@ jQuery(function($){
 })
 </script>
 <style>
-.search {width:100%;}
+.search {width:100%; font-size: 40px;}
 .h {background-color: yellow;}
 </style>
 
 
-<iframe class='video' width="560" height="315" src="" frameborder="0" allow='autoplay; encrypted-media' allowfullscreen></iframe>
+<iframe style='display:none' class='video' width="560" height="315" src="" frameborder="0" allow='autoplay; encrypted-media' allowfullscreen></iframe>
 <hr>
 <input class='search' type='search' class='' placeholder="Cerca nei sottotitoli dei 160 video del corso">
 <hr>
