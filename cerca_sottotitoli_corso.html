@@ -19,7 +19,7 @@ function debounce(delay,fn){
     return wrap_func
  }
 jQuery(function($){
-	$(document).on('keyup','.search',debounce(150,function(e){
+	$(document).on('keyup click','.search',debounce(150,function(e){
 		var texts = Object.keys(window.subdata.texts)
 		var st = $(this).val()
 		var res = $('.results')
@@ -53,6 +53,13 @@ jQuery(function($){
 		var yturl = "//www.youtube.com/embed/"+vinfo[0]+"?autoplay=1&start="+vpos[1]
 		$('.video').attr("src",yturl)
 	})
+
+	var f = window.location.hash
+	if(f) {
+		f = f.replace('#','')
+		$('.search').val(f)
+		$('.search').click()
+	}
 })
 </script>
 <style>
